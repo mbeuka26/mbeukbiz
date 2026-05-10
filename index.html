@@ -568,7 +568,7 @@ tr:hover td{background:var(--surface)!important;}
       <div class="auth-input-wrap">
         <label class="auth-label">Clé de licence</label>
         <input class="auth-input" type="text" id="licenseKey"
-               placeholder="MBK-XXXX-XXXX-XXXX" maxlength="16"
+               placeholder="MBK-XXXX-XXXX-XXXX" maxlength="19"
                oninput="mbizFormatLicenseEl(this)"
                style="font-family:monospace;letter-spacing:.08em;text-transform:uppercase;font-size:1rem;text-align:center">
       </div>
@@ -616,7 +616,7 @@ tr:hover td{background:var(--surface)!important;}
         <div style="font-size:.82rem;font-weight:700;color:var(--accent2);margin-bottom:6px">🔑 Compte créé ! Activez votre accès</div>
         <div style="font-size:.75rem;color:var(--text2);margin-bottom:12px">Entrez votre clé de licence ou démarrez un essai gratuit de 3 jours.</div>
         <input class="auth-input" type="text" id="regLicenseKey"
-               placeholder="MBK-XXXX-XXXX-XXXX" maxlength="16"
+               placeholder="MBK-XXXX-XXXX-XXXX" maxlength="19"
                oninput="mbizFormatLicenseEl(this)"
                style="font-family:monospace;letter-spacing:.05em;text-transform:uppercase;margin-bottom:10px">
         <button class="auth-btn-primary" onclick="mbizActivateLicenseCtx('register')">
@@ -1793,9 +1793,9 @@ function mbizFormatLicenseEl(input){
   let v = input.value.replace(/[^A-Z0-9]/gi,'').toUpperCase();
   // Supprimer le préfixe MBK s'il est tapé manuellement pour éviter duplication
   if(v.startsWith('MBK')) v = v.slice(3);
-  v = v.slice(0,12);
+  v = v.slice(0,16);
   let parts = v.match(/.{1,4}/g)||[];
-  input.value = ['MBK',...parts].slice(0,4).join('-').slice(0,16);
+  input.value = ['MBK',...parts].slice(0,4).join('-').slice(0,19);
 }
 
 /* ── Helpers contextuels (login, license ou register) ─────────── */
@@ -1828,7 +1828,7 @@ async function mbizActivateLicenseCtx(ctx){
   hideError(errEl); hideError(okEl);
   const key = (keyEl?.value||'').trim().toUpperCase();
 
-  if(!key||key.length<12){ showError(errEl,'Entrez une clé de licence valide (MBK-XXXX-XXXX-XXXX).'); return; }
+  if(!key||key.length<16){ showError(errEl,'Entrez une clé de licence valide (MBK-XXXX-XXXX-XXXX).'); return; }
 
   const user = _mbizCurrentUser || JSON.parse(_idbStore.getItem('mbiz_session')||'null');
   if(!user){
