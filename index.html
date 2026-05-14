@@ -5530,8 +5530,60 @@ window.SWOPFS = SWOPFS;
     window.navigate = function(p) {
       _origNav && _origNav(p);
       if (p === 'parametres') setTimeout(cpInit, 200);
+      // CORRECTIF : fermeture sidebar mobile garantie pour tous les modules
+      if (window.innerWidth < 768) {
+        var sb = document.getElementById('sidebar');
+        if (sb) sb.classList.remove('mobile-open');
+      }
     };
 
+  })();
+
+  // ===== CORRECTIF SIDEBAR : fermeture sur clic zone vide =====
+  (function() {
+    function _initSidebarEmptyClick() {
+      var sidebar = document.getElementById('sidebar');
+      if (!sidebar) return;
+      sidebar.addEventListener('click', function(e) {
+        // On ne ferme que si la sidebar est ouverte sur mobile
+        if (window.innerWidth >= 768) return;
+        if (!sidebar.classList.contains('mobile-open')) return;
+        // Vérifier que le clic est bien sur la sidebar elle-même
+        // (et non sur un élément interactif ou son enfant)
+        var target = e.target;
+        // Remonter l'arbre jusqu'à la sidebar pour voir si on a touché un élément interactif
+        var node = target;
+        while (node && node !== sidebar) {
+          var tag = node.tagName ? node.tagName.toUpperCase() : '';
+          // Éléments interactifs : boutons, liens, inputs, selects, labels cliquables, nav-items, biz-switcher, user-card
+          if (
+            tag === 'BUTTON' ||
+            tag === 'A' ||
+            tag === 'INPUT' ||
+            tag === 'SELECT' ||
+            tag === 'TEXTAREA' ||
+            tag === 'LABEL' ||
+            node.classList.contains('nav-item') ||
+            node.classList.contains('biz-switcher') ||
+            node.classList.contains('biz-option') ||
+            node.classList.contains('biz-add') ||
+            node.classList.contains('user-card') ||
+            node.classList.contains('nav-badge') ||
+            (node.getAttribute && node.getAttribute('onclick'))
+          ) {
+            return; // Clic sur élément interactif → ne pas fermer
+          }
+          node = node.parentElement;
+        }
+        // Zone vide de la sidebar → fermer
+        sidebar.classList.remove('mobile-open');
+      });
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', _initSidebarEmptyClick);
+    } else {
+      _initSidebarEmptyClick();
+    }
   })();
 
 </script>
