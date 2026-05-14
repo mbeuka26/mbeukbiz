@@ -508,39 +508,6 @@ tr:hover td{background:var(--surface)!important;}
 [data-theme="dark"] select option{background:var(--bg2);color:var(--text);}
 
 
-/* ═══ V16 — Scroll horizontal desktop ═══ */
-@media(min-width:769px){
-  .main {
-    overflow-x: auto;
-  }
-  .page {
-    min-width: 900px; /* prevent collapse on small desktop windows */
-  }
-  /* Scrollbar horizontal stylisée */
-  .main::-webkit-scrollbar {
-    height: 6px;
-  }
-  .main::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  .main::-webkit-scrollbar-thumb {
-    background: var(--border2);
-    border-radius: 3px;
-  }
-  .main::-webkit-scrollbar-thumb:hover {
-    background: var(--text3);
-  }
-}
-/* Sur mobile: pas de scroll horizontal global */
-@media(max-width:768px){
-  body {
-    overflow-x: hidden;
-  }
-  .main {
-    overflow-x: hidden;
-  }
-}
-
 /* ════════════════════════════════════════════════════════════════
    MBEUKCOULEURS V1 — Système de personnalisation des couleurs
    ════════════════════════════════════════════════════════════════ */
@@ -3048,8 +3015,6 @@ let currentPage='dashboard';
 let _chartRevenue=null,_chartDonut=null,_chartCaisse=null,_chartAnalytics=null,_chartDonut2=null;
 
 function navigate(page){
-  // V16: fermeture sidebar mobile garantie en début de navigation
-  if(window.innerWidth<768){var _sb=document.getElementById('sidebar');if(_sb)_sb.classList.remove('mobile-open');}
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
   const el=document.getElementById('page-'+page); if(el)el.classList.add('active');
@@ -5555,21 +5520,9 @@ window.SWOPFS = SWOPFS;
 
     // init on DOM ready
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', function(){ cpInit(); sidebarEmptyClose(); });
+      document.addEventListener('DOMContentLoaded', cpInit);
     } else {
-      cpInit(); sidebarEmptyClose();
-    }
-
-    function sidebarEmptyClose(){
-      var sidebar = document.getElementById('sidebar');
-      if(!sidebar) return;
-      sidebar.addEventListener('click', function(e){
-        if(window.innerWidth >= 768) return;
-        var isInteractive = e.target.closest('.nav-item, .biz-switcher, .biz-dropdown, .biz-add, .biz-option, .user-card, .sidebar-logo, input, button, select, a, .couleurs-panel, .module-check-item, .toggle-switch, .theme-card, .couleur-pick-row, label');
-        if(!isInteractive){
-          sidebar.classList.remove('mobile-open');
-        }
-      });
+      cpInit();
     }
 
     // Also re-init when parametres page is navigated to
