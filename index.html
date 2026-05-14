@@ -1049,7 +1049,11 @@ input[type="color"].cp-input {
 
 </div><!-- /authScreen -->
 
-<div id="appScreen" class="app hidden">  <!-- SIDEBAR -->  <aside class="sidebar" id="sidebar">    <div class="sidebar-logo">      <div class="sidebar-logo-icon">💼</div>      <div class="sidebar-logo-text">Mbeuk<span>Biz</span></div>    </div>    <div class="biz-switcher" onclick="toggleBizDropdown()">      <div class="biz-switcher-label">Business actif</div>      <div class="biz-switcher-name">        <span id="currentBizName">Mon Business</span>        <span class="biz-badge" id="currentBizBadge">FCFA</span>      </div>    </div>    <div class="biz-dropdown" id="bizDropdown">      <div id="bizList"></div>      <div class="biz-add" onclick="openModal('newBizModal')">＋ Nouveau business</div>    </div>    <nav class="sidebar-nav">      <div class="nav-section">        <div class="nav-section-label">Général</div>        <div class="nav-item active" onclick="navigate('dashboard')"><span class="nav-icon">📊</span> Dashboard</div>        <div class="nav-item" onclick="navigate('caisse')"><span class="nav-icon">💰</span> Caisse</div>        <div class="nav-item" onclick="navigate('analytiques')"><span class="nav-icon">📈</span> Analytiques</div>        <div class="nav-item" id="nav-super-admin" style="display:none;color:var(--amber)" onclick="openSuperAdminPanel()"><span class="nav-icon">👑</span> Super Admin</div>      </div>      <div class="nav-section" id="nav-section-commerce" data-module="commerce">        <div class="nav-section-label">Commerce</div>        <div class="nav-item" data-module="commerce" onclick="navigate('produits')"><span class="nav-icon">📦</span> Produits <span class="nav-badge" id="badge-produits">0</span></div>        <div class="nav-item" data-module="commerce" onclick="navigate('ventes')"><span class="nav-icon">🛒</span> Ventes</div>        <div class="nav-item" data-module="commerce" onclick="navigate('clients')"><span class="nav-icon">👤</span> Clients</div>        <div class="nav-item" data-module="commerce" onclick="navigate('dettes')"><span class="nav-icon">📋</span> Dettes clients</div>      </div>      <div class="nav-section" id="nav-section-services" data-module="services">        <div class="nav-section-label">Services</div>        <div class="nav-item" data-module="services" onclick="navigate('services')"><span class="nav-icon">⚙️</span> Services</div>        <div class="nav-item" data-module="services" onclick="navigate('prestations')"><span class="nav-icon">✅</span> Prestations</div>      </div>      <div class="nav-section">        <div class="nav-section-label">Gestion</div>        <div class="nav-item" onclick="navigate('employes')"><span class="nav-icon">👥</span> Employés</div>        <div class="nav-item" onclick="navigate('depenses')"><span class="nav-icon">💸</span> Dépenses</div>        <div class="nav-item" id="nav-item-restaurant" data-module="restauration" onclick="navigate('restaurant')"><span class="nav-icon" id="nav-resto-icon">🍽️</span> <span id="nav-resto-label">Restaurant</span></div>      </div>      <div class="nav-section">        <div class="nav-section-label">Compte</div>        <div class="nav-item" onclick="navigate('parametres')"><span class="nav-icon">⚙️</span> Paramètres</div><div class="nav-item" onclick="navigate('guide')"><span class="nav-icon">📘</span> Guide d'utilisation</div>      </div>    </nav>    <div class="sidebar-bottom">      <div class="user-card" onclick="handleLogout()">        <div class="user-avatar" id="userAvatar">?</div>        <div class="user-info">          <div class="user-name" id="userName">Utilisateur <span class="role-badge" id="role-badge" style="display:none"></span></div>          <div class="user-role" id="user-role-label">Se déconnecter</div>        </div>      </div>    </div>  </aside>  <!-- MAIN -->  <div class="main">    <div class="topbar">      <button class="topbar-ham" onclick="toggleSidebar()" title="Menu">&#9776;</button>      <div class="topbar-title" id="topbarTitle">Dashboard</div>      <div class="topbar-actions">
+<div id="appScreen" class="app hidden">  <!-- SIDEBAR -->  <aside class="sidebar" id="sidebar">    <div class="sidebar-logo">      <div class="sidebar-logo-icon">💼</div>      <div class="sidebar-logo-text">Mbeuk<span>Biz</span></div>    </div>    <div class="biz-switcher" onclick="toggleBizDropdown()">      <div class="biz-switcher-label">Business actif</div>      <div class="biz-switcher-name">        <span id="currentBizName">Mon Business</span>        <span class="biz-badge" id="currentBizBadge">FCFA</span>      </div>    </div>    <div class="biz-dropdown" id="bizDropdown">      <div id="bizList"></div>      <div class="biz-add" onclick="openModal('newBizModal')">＋ Nouveau business</div>    </div>    <nav class="sidebar-nav">      <div class="nav-section">        <div class="nav-section-label">Général</div>        <div class="nav-item active" onclick="navigate('dashboard')"><span class="nav-icon">📊</span> Dashboard</div>        <div class="nav-item" onclick="navigate('caisse')"><span class="nav-icon">💰</span> Caisse</div>        <div class="nav-item" onclick="navigate('analytiques')"><span class="nav-icon">📈</span> Analytiques</div>        <div class="nav-item" id="nav-super-admin" style="display:none;color:var(--amber)" onclick="openSuperAdminPanel()"><span class="nav-icon">👑</span> Super Admin</div>      </div>      <div class="nav-section" id="nav-section-commerce" data-module="commerce">        <div class="nav-section-label">Commerce</div>        <div class="nav-item" data-module="commerce" onclick="navigate('produits')"><span class="nav-icon">📦</span> Produits <span class="nav-badge" id="badge-produits">0</span></div>        <div class="nav-item" data-module="commerce" onclick="navigate('ventes')"><span class="nav-icon">🛒</span> Ventes</div>        <div class="nav-item" data-module="commerce" onclick="navigate('clients')"><span class="nav-icon">👤</span> Clients</div>        <div class="nav-item" data-module="commerce" onclick="navigate('dettes')"><span class="nav-icon">📋</span> Dettes clients</div>      </div>      <div class="nav-section" id="nav-section-services" data-module="services">        <div class="nav-section-label">Services</div>        <div class="nav-item" data-module="services" onclick="navigate('services')"><span class="nav-icon">⚙️</span> Services</div>        <div class="nav-item" data-module="services" onclick="navigate('prestations')"><span class="nav-icon">✅</span> Prestations</div>      </div>      <div class="nav-section">        <div class="nav-section-label">Gestion</div>        <div class="nav-item" onclick="navigate('employes')"><span class="nav-icon">👥</span> Employés</div>        <div class="nav-item" onclick="navigate('depenses')"><span class="nav-icon">💸</span> Dépenses</div>        <div class="nav-item" id="nav-item-restaurant" data-module="restauration" onclick="navigate('restaurant')"><span class="nav-icon" id="nav-resto-icon">🍽️</span> <span id="nav-resto-label">Restaurant</span></div>      </div>      <div class="nav-section">        <div class="nav-section-label">Compte</div>        <div class="nav-item" onclick="navigate('parametres')"><span class="nav-icon">⚙️</span> Paramètres</div><div class="nav-item" onclick="navigate('guide')"><span class="nav-icon">📘</span> Guide d'utilisation</div>      </div>    </nav>    <!-- Bouton flèche toggle sidebar — mobile uniquement -->
+    <div id="sidebar-arrow-toggle" onclick="toggleSidebar()" title="Fermer le menu" style="display:none;align-items:center;justify-content:center;padding:10px 0;border-top:1px solid var(--border);cursor:pointer;transition:background 0.15s;" onmouseenter="this.style.background='var(--surface)'" onmouseleave="this.style.background=''">
+      <span id="sidebar-arrow-icon" style="font-size:1.1rem;color:var(--text3);transition:transform 0.3s;">◀</span>
+    </div>
+    <div class="sidebar-bottom">      <div class="user-card" onclick="handleLogout()">        <div class="user-avatar" id="userAvatar">?</div>        <div class="user-info">          <div class="user-name" id="userName">Utilisateur <span class="role-badge" id="role-badge" style="display:none"></span></div>          <div class="user-role" id="user-role-label">Se déconnecter</div>        </div>      </div>    </div>  </aside>  <!-- MAIN -->  <div class="main">    <div class="topbar">      <button class="topbar-ham" onclick="toggleSidebar()" title="Menu">&#9776;</button>      <div class="topbar-title" id="topbarTitle">Dashboard</div>      <div class="topbar-actions">
 <button id="themeToggle" onclick="mbizToggleTheme()" title="Changer le thème">
   <span class="theme-icon" id="themeIcon">🌙</span>
   <span id="themeLabel">Sombre</span>
@@ -3036,7 +3040,11 @@ function navigate(page){
   if(page==='clients')     {renderClients();setTimeout(renderReservations,50);}
   if(page==='produits')    {renderProduits();}
   if(page==='employes')    {renderEmployes();}
-  if(window.innerWidth<768)document.getElementById('sidebar')?.classList.remove('mobile-open');
+  // Fermeture sidebar mobile — garanti pour TOUS les modules
+  if(window.innerWidth<768){
+    var _sb=document.getElementById('sidebar');
+    if(_sb)_sb.classList.remove('mobile-open');
+  }
 }
 
 function topbarActionFn(){
@@ -5525,13 +5533,116 @@ window.SWOPFS = SWOPFS;
       cpInit();
     }
 
-    // Also re-init when parametres page is navigated to
-    window.navigate = (function(origNav) {
-      return function(p) {
-        origNav(p);
-        if (p === 'parametres') setTimeout(cpInit, 200);
-      };
-    })(navigate); // capture la vraie fonction navigate, pas window.navigate
+    // Re-init couleurs quand on navigue vers parametres
+    // NOTE: on capture `navigate` (variable globale) et non window.navigate
+    // car window.navigate peut être undefined au moment où ce code s'exécute
+    var _navReal = navigate; // capture directe de la fonction originale
+    window.navigate = function(p) {
+      _navReal(p);
+      if (p === 'parametres') setTimeout(cpInit, 200);
+    };
+
+  })();
+
+  /* ================================================================
+     SIDEBAR MOBILE — 3 comportements
+     1. Fermeture sur clic zone vide de la sidebar
+     2. Flèche toggle visible sur mobile
+     3. Mise à jour de l'icône selon l'état ouvert/fermé
+  ================================================================ */
+  (function() {
+
+    function isMobile() { return window.innerWidth < 768; }
+
+    function getSidebar() { return document.getElementById('sidebar'); }
+
+    // --- Flèche : afficher/cacher selon viewport ---
+    function updateArrowVisibility() {
+      var arrow = document.getElementById('sidebar-arrow-toggle');
+      if (!arrow) return;
+      arrow.style.display = isMobile() ? 'flex' : 'none';
+    }
+
+    // --- Flèche : orienter selon état ouvert/fermé ---
+    function updateArrowIcon() {
+      var icon = document.getElementById('sidebar-arrow-icon');
+      var sb   = getSidebar();
+      if (!icon || !sb) return;
+      var isOpen = sb.classList.contains('mobile-open');
+      // ◀ quand ouverte (flèche pour fermer), ▶ quand fermée (flèche pour ouvrir)
+      icon.textContent = isOpen ? '◀' : '▶';
+      icon.style.color = isOpen ? 'var(--accent2)' : 'var(--text3)';
+    }
+
+    // --- Patch toggleSidebar pour mettre à jour la flèche ---
+    var _origToggle = window.toggleSidebar;
+    window.toggleSidebar = function() {
+      if (_origToggle) _origToggle();
+      else {
+        var sb = getSidebar();
+        if (sb) sb.classList.toggle('mobile-open');
+      }
+      updateArrowIcon();
+    };
+
+    // --- Fermeture sur clic zone vide de la sidebar ---
+    function initEmptyClick() {
+      var sb = getSidebar();
+      if (!sb) return;
+      sb.addEventListener('click', function(e) {
+        if (!isMobile()) return;
+        if (!sb.classList.contains('mobile-open')) return;
+
+        // Remonter l'arbre pour détecter un élément interactif
+        var node = e.target;
+        while (node && node !== sb) {
+          var tag = (node.tagName || '').toUpperCase();
+          if (
+            tag === 'BUTTON' || tag === 'A' ||
+            tag === 'INPUT'  || tag === 'SELECT' ||
+            tag === 'TEXTAREA' || tag === 'LABEL' ||
+            node.classList.contains('nav-item') ||
+            node.classList.contains('biz-switcher') ||
+            node.classList.contains('biz-option') ||
+            node.classList.contains('biz-add') ||
+            node.classList.contains('user-card') ||
+            node.id === 'sidebar-arrow-toggle' ||
+            (node.getAttribute && node.getAttribute('onclick'))
+          ) {
+            return; // élément interactif → ne pas fermer
+          }
+          node = node.parentElement;
+        }
+        // Zone vide → fermer
+        sb.classList.remove('mobile-open');
+        updateArrowIcon();
+      });
+    }
+
+    // --- Mise à jour flèche après chaque navigate ---
+    var _navForArrow = window.navigate;
+    window.navigate = function(p) {
+      if (_navForArrow) _navForArrow(p);
+      updateArrowIcon();
+    };
+
+    // --- Init au chargement ---
+    function init() {
+      updateArrowVisibility();
+      updateArrowIcon();
+      initEmptyClick();
+    }
+
+    window.addEventListener('resize', function() {
+      updateArrowVisibility();
+      updateArrowIcon();
+    });
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
 
   })();
 
